@@ -1,9 +1,31 @@
 
 # argo-checker
 
-Wraps the latest version of the [Ifremer Argo NetCDF file checker](https://doi.org/10.17882/45538) as a Docker image.
+Wraps the latest version of the [Ifremer Argo NetCDF file checker](https://doi.org/10.17882/45538) as a Docker image. Written by @paleolimbot.
 
 As a command-line utility:
+
+You can use the 'argo-checker.py' Python file locally as long as you have `java` installed and on your PATH.
+
+``` bash
+python argo-checker.py --help
+```
+
+    usage: argo-checker.py [-h] [--update] [--force] [--quiet] {check,serve} [files_or_urls [files_or_urls ...]]
+
+    Run, serve, or upgrade the Ifremer NetCDF file format checker for Argo floats <https://doi.org/10.17882/45538>.
+
+    positional arguments:
+    {check,serve}  Use 'check' to export XML to stdout based on 'files' and 'serve' to serve a minimal web-based interface.
+    files_or_urls  Zero or more files or URLs if 'action' is 'check'
+
+    optional arguments:
+    -h, --help     show this help message and exit
+    --update       Update to the latest distributed version of the tool before running 'action'
+    --force        Reinstall even if tool is at latest version.
+    --quiet        Suppress status messages.
+
+Alternatively, it can also be used via docker: 
 
 ``` bash
 # once:
@@ -38,23 +60,3 @@ docker run --rm paleolimbot/argo-checker check \
         <file_compliant>no</file_compliant>
         <status>ok</status>
     </coriolis_function_report>
-
-You can also use the 'argo-checker.py' Python file, which will work as long as you have `java` installed and on your PATH.
-
-``` bash
-python argo-checker.py --help
-```
-
-    usage: argo-checker.py [-h] [--update] [--force] [--quiet] {check,serve} [files_or_urls [files_or_urls ...]]
-
-    Run, serve, or upgrade the Ifremer NetCDF file format checker for Argo floats <https://doi.org/10.17882/45538>.
-
-    positional arguments:
-    {check,serve}  Use 'check' to export XML to stdout based on 'files' and 'serve' to serve a minimal web-based interface.
-    files_or_urls  Zero or more files or URLs if 'action' is 'check'
-
-    optional arguments:
-    -h, --help     show this help message and exit
-    --update       Update to the latest distributed version of the tool before running 'action'
-    --force        Reinstall even if tool is at latest version.
-    --quiet        Suppress status messages.
