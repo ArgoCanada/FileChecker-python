@@ -1,7 +1,7 @@
 
 # argo-checker
 
-Wraps the latest version of the [Ifremer Argo NetCDF file checker](https://doi.org/10.17882/45538) as a Docker image. Written by @paleolimbot.
+Wraps the latest version of the [Ifremer Argo NetCDF file checker](https://doi.org/10.17882/45538) as a Docker image. Written by [@paleolimbot](https://github.com/paleolimbot).
 
 As a command-line utility:
 
